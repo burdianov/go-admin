@@ -1,0 +1,28 @@
+$ go mod init github.com/burdianov/todo-api
+
+$ go run main.go
+
+$ go get github.com/gofiber/fiber
+
+# after installing a 3rd party package, run:
+$ go mod tidy
+
+$ go get -u gorm.io/gorm
+$ go get -u gorm.io/driver/mysql
+
+# live reload:
+
+$ nodemon --exec go run main.go --signal SIGTERM
+
+# or create Makefile with the following contents:
+#####################
+.PHONY: dev
+dev:
+	nodemon --exec go run main.go --signal SIGTERM
+
+.DEFAULT_GOAL := dev
+#####################
+
+# run dev command:
+$ make
+
